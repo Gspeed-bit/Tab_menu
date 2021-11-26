@@ -1,6 +1,8 @@
 import React from "react";
 import { MdOutlineDoubleArrow } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import {useState } from "react";
+import TestButton from "./Buttons/TestButton";
 
 const Tabs = ({ tabs }) => {
   const [value, setValue] = useState(0);
@@ -16,10 +18,10 @@ const Tabs = ({ tabs }) => {
       <div>
         {tabs.map((tab, index) => {
           return (
-            <button onClick={() => setValue(index)} key={index}>
-              {" "}
-              {tab.company}{" "}
+            <button onClick={() => setValue(index)} key={tab.id}>
+              {tab.company}
             </button>
+         
           );
         })}
       </div>
@@ -30,15 +32,20 @@ const Tabs = ({ tabs }) => {
         <p>{dates}</p>
         {duties.map((duty, index) => {
           return (
-            <div>
-              <MdOutlineDoubleArrow key={index} />
-              <p> {duty}</p>
+            <div key={index}>
+              <MdOutlineDoubleArrow  />
+              <p > {duty}</p>
             </div>
           );
         })}
       </article>
+      <TestButton>
+        <Link to="/about">
+      <button type="button"> More Info</button>
+        </Link>
 
-      <button> More Info</button>
+      </TestButton>
+      
     </section>
   );
 };

@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 import { Loading } from "./components/Loading";
 import ReactLoading from "react-loading";
 import Tabs from "./components/Tabs";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { About } from "./components/route/About";
 const url = "https://course-api.com/react-tabs-project";
+
 function App() {
   const [loading, setLoading] = useState(true); // for the Loading section
   const [tabs, setTabs] = useState([]); // the data fetched will be passed in tabs
@@ -29,9 +32,8 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       TabAPIgetter();
-    }, 1000);
+    }, 100);
   }, []);
-
 
   // if the loading is true the below condition will be excuted
   if (loading) {
@@ -51,13 +53,22 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <main>
-        <div>
-          <Tabs tabs={tabs} />
-        </div>
-      </main>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <div className="App">
+            <main>
+              <div>
+                <Tabs tabs={tabs} />
+              </div>
+            </main>
+          </div>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
