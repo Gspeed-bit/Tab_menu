@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Loading } from "./components/Loading";
 import ReactLoading from "react-loading";
 import Tabs from "./components/Tabs";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { About } from "./components/route/About";
 const url = "https://course-api.com/react-tabs-project";
@@ -32,27 +33,27 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       TabAPIgetter();
-    }, 100);
+    }, 2000);
   }, []);
 
   // if the loading is true the below condition will be excuted
   if (loading) {
     return (
-      <main className="App">
-        <div className=" title title-loading">
-          <Loading />
+     
+        <div  className=" title loading">
+          <Loading className="" />
           <ReactLoading
+          className="icon"
+          color={"hsl(360, 67%, 44%)"}
             type={"spin"}
-            color={"hsl(209, 61%, 16%)"}
-            height={"5%"}
-            width={"5%"}
+          
           />
         </div>
-      </main>
-    );
+       );
   }
 
   return (
+    <section className="section">
     <Router>
       <Switch>
         <Route exact path="/">
@@ -69,6 +70,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    </section>
   );
 }
 
