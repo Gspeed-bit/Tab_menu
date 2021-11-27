@@ -109,7 +109,7 @@ p {
 .section {
   min-height: 70vh;
   width: 90vw;
-  margin: 10rem auto;
+  margin: 6rem auto;
   max-width: var(--max-width);
   
 }

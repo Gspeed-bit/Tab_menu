@@ -24,7 +24,7 @@ const Tabs = ({ tabs }) => {
       <div className="btn">
         {tabs.map((tab, index) => {
           return (
-            <StyledButton>
+            <StyledButton key={tab.id}>
               <div
                 className={`job-btn ${index === value && "active-btn"}`}
                 onClick={() => setValue(index)}

@@ -20,7 +20,7 @@ function App() {
       const data = await response.json();
       setTabs(data); //the result gotten from the API is passed into the setTabs
       setLoading(false); // we need to set the setLoading to false so that it will run the <Tours /> instead of  <Loading />
-      console.log(data);
+  
     } catch (err) {
       //here catch is responsible for the error gotten from the API
       setLoading(false);
@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       TabAPIgetter();
-    }, 2000);
+    }, 500);
   }, []);
 
   // if the loading is true the below condition will be excuted
